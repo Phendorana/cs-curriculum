@@ -8,43 +8,21 @@ using UnityEngine;
 public class CaveMovement : MonoBehaviour
 {
     float speed = 4;
-    private float grav = 3;
-    private float jump;
-    private float yVel;
-    private Vector3 move;
-    public bool grounded;
+    [SerializeField] float jump = 10;
+    Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
     void Update()
     {
-        if (grounded & (Input.GetAxis("Vertical") == 1 | Input.GetButton("Jump")))
+        if ( & (Input.GetAxis("Vertical") > 0 | Input.GetButton("Jump")))
         {
-            yVel += jump;
+            rb.AddForce(Vector2.up * jump);
         }
-        if (yVel > 0)
-        {
-            yVel -= grav;
-        }
-        move = new Vector3(Input.GetAxis("Horizontal") * speed, yVel, 0) * Time.deltaTime;
-        transform.Translate(move);
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0));
     }
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            grounded = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            grounded = false;
-        }
-    }
+    
 }
