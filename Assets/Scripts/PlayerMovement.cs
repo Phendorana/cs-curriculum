@@ -30,23 +30,21 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            hit = Physics2D.Raycast(transform.position, Vector2.down, col.bounds.extents.y + 0.1f);
-            if (hit.collider.gameObject.CompareTag("Ground"))
+            hit = Physics2D.Raycast(transform.position, Vector2.down);
+            if (hit.distance < col.bounds.extents.y + 0.1f)
             {
                 yVel = 0;
-                if (Input.GetAxis("Vertical") > 0 | Input.GetButton("Jump")) //Up arrow, W key, or spacebar
+                if (Input.GetAxis("Vertical") > 0 | Input.GetButtonDown("Jump"))
                 {
-                    yVel += 2; //Jump
+                    yVel = 8;
                 }
             }
-            else //Gravity
+            else
             {
                 yVel -= 20 * Time.deltaTime;
             }
-            
         }
         transform.Translate(new Vector3(xVel, yVel, 0f) * Time.deltaTime);
-        
     }
     
 }

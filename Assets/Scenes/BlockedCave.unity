@@ -142,20 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overworld: 0
---- !u!114 &10822057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10822050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d5ad21011a11432b8f9fcc537241bc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  purse: {fileID: 10822059}
-  healthManager: {fileID: 10822058}
 --- !u!114 &10822058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3517,10 +3503,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 10822058}
-    - targetCorrespondingSourceObject: {fileID: 7386698514500486556, guid: cddc0eae8679c4344b7e477729e7843b,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 10822057}
   m_SourcePrefab: {fileID: 100100000, guid: cddc0eae8679c4344b7e477729e7843b, type: 3}
 --- !u!1 &1780349549
 GameObject:

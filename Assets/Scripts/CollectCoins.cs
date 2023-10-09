@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CollectCoins : MonoBehaviour
 {
-    public int coins = 0;
+    public int coins;
     // Start is called before the first frame update
     void Start()
     {
