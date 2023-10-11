@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D col;
     private RaycastHit2D hit;
+    private Scene scene;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region Scene
+        scene = SceneManager.GetActiveScene();
+        overworld = (scene.name == "Overworld") ? true : false;
+        #endregion
+        #region Movement
         xVel = Input.GetAxis("Horizontal") * speed;
         if (overworld)
         {
@@ -31,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             hit = Physics2D.Raycast(transform.position, Vector2.down);
-            if (hit.distance < col.bounds.extents.y + 0.1f)
+            if (hit.distance < col.bounds.extents.y)
             {
                 yVel = 0;
                 if (Input.GetAxis("Vertical") > 0 | Input.GetButtonDown("Jump"))
@@ -45,6 +52,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         transform.Translate(new Vector3(xVel, yVel, 0f) * Time.deltaTime);
+        #endregion
     }
+    
+    
     
 }
