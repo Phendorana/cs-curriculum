@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class CollectCoins : MonoBehaviour
 {
-    public int coins;
+    private HUD gm;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gm = GameObject.FindObjectOfType<HUD>();
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class CollectCoins : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin"))
         {
-            coins += 1;
+            gm.coins += Mathf.FloorToInt(Mathf.Pow(5, other.gameObject.transform.localScale.x - 1));
             other.gameObject.SetActive(false);
         }
     }

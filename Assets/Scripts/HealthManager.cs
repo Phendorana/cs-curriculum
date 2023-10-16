@@ -1,20 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    public int health = 5;
+    private HUD gm;
     private float itime = 0; //How long player has been invincible for
     private float ilength = 1.5f; //How long player will be invincible for
-    private Renderer rend;
-    private Color ogColor; //Original color
+    //private Sprite sprite;
+    //private SpriteRenderer sr; //The renderer attached to the sprite
+    //private Color ogColor; //Original color
     // Start is called before the first frame update
     void Start()
     {
-        rend = GetComponent<Renderer>();
-        ogColor = rend.material.color;
+        gm = GameObject.FindObjectOfType<HUD>();
+        //sprite = GetComponent<Sprite>();
+        //sr = sprite.GetComponent<SpriteRenderer>();
+        //ogColor = sr.color;
+        //sr.color = Color.green;
     }
 
     // Update is called once per frame
@@ -23,20 +28,19 @@ public class HealthManager : MonoBehaviour
         if (itime > 0) //If timer in progress
         {
             itime += Time.deltaTime; //Increase timer
-            rend.material.color = new Color(itime, itime, itime);
+            //sr.color = Color.red;
             if (itime > ilength) //If timer finished
             {
                 itime = 0; //Reset
-                rend.material.color = ogColor;
+                //sr.color = ogColor;
             }
         }
     }
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (itime == 0 & other.gameObject.CompareTag("Spikes"))
         {
-            health -= 1;
+            gm.health -= 1;
             itime += Time.deltaTime;
         }
     }

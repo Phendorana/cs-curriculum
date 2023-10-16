@@ -25,10 +25,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        #region Scene
-        scene = SceneManager.GetActiveScene();
-        overworld = (scene.name == "Overworld") ? true : false;
-        #endregion
         #region Movement
         xVel = Input.GetAxis("Horizontal") * speed;
         if (overworld)
