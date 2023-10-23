@@ -1,19 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using Object = System.Object;
 
 public class Turret : MonoBehaviour
 {
     private float timerMax = 2;
     private float timer;
-    private Vector3 target;
-    private GameObject projectile;
-    // Start is called before the first frame update
+    public Rigidbody2D projectile;
     void Start()
     {
-        projectile = GameObject.Find("Turret_Projectile");
         timer = timerMax;
     }
 
@@ -24,13 +24,14 @@ public class Turret : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-    }
+    }   
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player") & timer < 0)
+        if (other.gameObject.CompareTag("Player") && timer <= 0)
         {
-            Instantiate(projectile, transform);
+            Rigidbody2D p = Instantiate(projectile, transform.position + new Vector3(0, 0.1f), quaternion.identity);
+            p.velocity = (other.gameObject.transform.position - transform.position).normalized * 100;
             timer = timerMax;
         }
     }
