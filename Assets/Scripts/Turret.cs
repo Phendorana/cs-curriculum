@@ -11,7 +11,7 @@ public class Turret : MonoBehaviour
 {
     private float timerMax = 2;
     private float timer;
-    public Rigidbody2D projectile;
+    public Fireball fireball;
     void Start()
     {
         timer = timerMax;
@@ -30,8 +30,9 @@ public class Turret : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && timer <= 0)
         {
-            Rigidbody2D p = Instantiate(projectile, transform.position + new Vector3(0, 0.1f), quaternion.identity);
-            p.velocity = (other.gameObject.transform.position - transform.position).normalized * 100;
+            Fireball f = Instantiate(fireball, transform.position + new Vector3(0, 0.1f), quaternion.identity);
+            f.velocity = (other.gameObject.transform.position - transform.position).normalized * 10;
+            f.gameObject.transform.tag = "Enemy";
             timer = timerMax;
         }
     }

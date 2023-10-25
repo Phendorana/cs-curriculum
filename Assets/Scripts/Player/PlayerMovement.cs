@@ -16,11 +16,13 @@ public class PlayerMovement : MonoBehaviour
     private Collider2D col;
     private RaycastHit2D hit;
     private Scene scene;
+    public Vector2 vel;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        vel = Vector2.down;
     }
     // Update is called once per frame
     void Update()
@@ -47,8 +49,13 @@ public class PlayerMovement : MonoBehaviour
                 yVel -= 20 * Time.deltaTime;
             }
         }
-        transform.Translate(new Vector3(xVel, yVel, 0f) * Time.deltaTime);
+        transform.Translate(new Vector2(xVel, yVel) * Time.deltaTime);
         #endregion
+
+        if (xVel != 0 || yVel != 0)
+        {
+            vel = new Vector2(xVel, yVel);
+        }
     }
     
     
