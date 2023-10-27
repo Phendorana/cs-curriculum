@@ -6,6 +6,9 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
     public Vector2 velocity;
+    public GameObject creator;
+    float deathTimer = 0.2f;
+    bool dying = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,13 +19,22 @@ public class Fireball : MonoBehaviour
     void Update()
     {
         transform.Translate(velocity * Time.deltaTime);
+        if (dying)
+        {
+            deathTimer -= Time.deltaTime;
+            if (deathTimer < 0)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!other.gameObject.CompareTag("Player") && !other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject != creator)
         {
-            gameObject.SetActive(false);
+            dying = true;
         }
     }
 }

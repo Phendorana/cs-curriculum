@@ -33,6 +33,7 @@ public class Turret : MonoBehaviour
             Fireball f = Instantiate(fireball, transform.position + new Vector3(0, 0.1f), quaternion.identity);
             f.velocity = (other.gameObject.transform.position - transform.position).normalized * 10;
             f.gameObject.transform.tag = "Enemy";
+            f.creator = gameObject;
             timer = timerMax;
         }
     }

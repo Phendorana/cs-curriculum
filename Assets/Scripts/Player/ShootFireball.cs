@@ -26,6 +26,8 @@ public class ShootFireball : MonoBehaviour
             Fireball f = Instantiate(fireball, transform.position, quaternion.identity);
             f.velocity = pmove.vel.normalized * 10;
             f.transform.tag = "Weapon";
+            f.creator = gameObject; //Make creator equal to the player
+            cooltime = cooldown; //Reset timer
         }
     }
 }
