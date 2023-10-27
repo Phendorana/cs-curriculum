@@ -38,7 +38,7 @@ public class HealthManager : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (itime == 0 & other.gameObject.CompareTag("Enemy"))
+        if (itime == 0 & other.otherCollider.gameObject.CompareTag("Enemy"))
         {
             gm.health -= 1;
             itime += Time.deltaTime;

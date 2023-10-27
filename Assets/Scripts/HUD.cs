@@ -7,7 +7,7 @@ public class HUD : MonoBehaviour
 {
     public static HUD gm;
     public int coins;
-    private int maxHealth = 5;
+    int maxHealth = 5;
     public int health;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI hpText;

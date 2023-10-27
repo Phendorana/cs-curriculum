@@ -7,8 +7,8 @@ public class Fireball : MonoBehaviour
 {
     public Vector2 velocity;
     public GameObject creator;
-    float deathTimer = 0.2f;
-    bool dying = false;
+    float deathTimer = 0.1f;
+    public bool dying = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +27,10 @@ public class Fireball : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
+        if (transform.position.magnitude > 1000)
+        {
+            gameObject.SetActive(false);
+        }
 
     }
 
@@ -36,5 +40,6 @@ public class Fireball : MonoBehaviour
         {
             dying = true;
         }
+        //print(other.gameObject.name);
     }
 }

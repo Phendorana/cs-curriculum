@@ -17,12 +17,11 @@ public class EnemyDeath : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Weapon"))
+        if (other.gameObject.CompareTag("Weapon")) //On hit by player
         {
-            other.gameObject.SetActive(false);
-            gameObject.SetActive(false);
+            gameObject.SetActive(false); //Die
         }
     }
 }

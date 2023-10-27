@@ -9,8 +9,8 @@ using Object = System.Object;
 
 public class Turret : MonoBehaviour
 {
-    private float timerMax = 2;
-    private float timer;
+    float timerMax = 2;
+    float timer;
     public Fireball fireball;
     void Start()
     {

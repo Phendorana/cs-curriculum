@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ShootFireball : MonoBehaviour
 {
-    private float cooldown = 2; //How long the cooldown timer will be each time
-    private float cooltime; //How long we've been cooling down for
+    float cooldown = 2; //How long the cooldown timer will be each time
+    float cooltime; //How long we've been cooling down for
     public Fireball fireball;
     public PlayerMovement pmove;
     void Start()
