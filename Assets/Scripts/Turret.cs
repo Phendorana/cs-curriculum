@@ -16,16 +16,13 @@ public class Turret : MonoBehaviour
     {
         timer = timerMax;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (timer > 0)
         {
             timer -= Time.deltaTime;
         }
-    }   
-
+    }
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player") && timer <= 0)

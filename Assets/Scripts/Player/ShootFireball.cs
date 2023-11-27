@@ -14,8 +14,6 @@ public class ShootFireball : MonoBehaviour
     {
         cooltime = cooldown;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (cooltime > 0)
