@@ -208,7 +208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf1a9ffd4d644c0b4e7b6f554f1096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drop: {fileID: 3462362578362087066, guid: 69c7343f050914c7787bbbe42c07b5b8, type: 3}
+  drop1: {fileID: 0}
+  drop2: {fileID: 3462362578362087066, guid: 69c7343f050914c7787bbbe42c07b5b8, type: 3}
+  drop3: {fileID: 248897439215273857, guid: cd0c2e8511c4747cc8cbd50be76c5524, type: 3}
 --- !u!114 &2741735157121246301
 MonoBehaviour:
   m_ObjectHideFlags: 0
