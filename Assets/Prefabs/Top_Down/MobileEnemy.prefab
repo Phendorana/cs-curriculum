@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2399072710900510365}
   - component: {fileID: 1996527365673187554}
   - component: {fileID: 2535550561511091601}
+  - component: {fileID: -7370312333091271414}
+  - component: {fileID: -957004161919751378}
   m_Layer: 0
   m_Name: MobileEnemy
   m_TagString: Enemy
@@ -119,9 +121,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf1a9ffd4d644c0b4e7b6f554f1096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drop1: {fileID: 8928701524657299959, guid: 2d2bc4cf5fda5c740b9cedcdbc7c87ac, type: 3}
-  drop2: {fileID: 8928701524657299959, guid: 2d2bc4cf5fda5c740b9cedcdbc7c87ac, type: 3}
-  drop3: {fileID: 8928701524657299959, guid: 2d2bc4cf5fda5c740b9cedcdbc7c87ac, type: 3}
+  drop1: {fileID: 0}
+  drop2: {fileID: 3462362578362087066, guid: 69c7343f050914c7787bbbe42c07b5b8, type: 3}
+  drop3: {fileID: 248897439215273857, guid: cd0c2e8511c4747cc8cbd50be76c5524, type: 3}
+--- !u!114 &-7370312333091271414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736838050167469039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91e7f4f71b834e2c885b1d3c6bd42c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+--- !u!58 &-957004161919751378
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736838050167469039}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.99
 --- !u!1 &6074370204116875197
 GameObject:
   m_ObjectHideFlags: 0

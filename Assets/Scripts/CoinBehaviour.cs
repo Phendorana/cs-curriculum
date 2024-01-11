@@ -10,10 +10,12 @@ public class CoinBehaviour : MonoBehaviour
     public bool inv = true; //Is invincible
     private SpriteRenderer sr;
     private Color backColor;
+    private float size; //The size of the coin
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         backColor = new Color(175, 175, 175);
+        size = transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -22,7 +24,7 @@ public class CoinBehaviour : MonoBehaviour
         if (inv)
         {
             timer += Time.deltaTime * dir;
-            transform.localScale = new Vector3(timer, 1, 1);
+            transform.localScale = new Vector3(timer, size, size);
             if (timer < 0)
             {
                 sr.color = backColor;
@@ -38,7 +40,7 @@ public class CoinBehaviour : MonoBehaviour
             else if (timer > 1)
             {
                 inv = false;
-                transform.localScale = Vector3.one;
+                transform.localScale = Vector3.one * size;
             }
         }
         

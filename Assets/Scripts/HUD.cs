@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour
     public int health;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI hpText;
+    public bool hasAxe;
     
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class HUD : MonoBehaviour
     {
         health = maxHealth;
         coins = 0;
+        hasAxe = false;
     }
 
     // Update is called once per frame

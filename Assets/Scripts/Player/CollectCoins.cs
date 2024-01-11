@@ -6,6 +6,7 @@ using UnityEngine;
 public class CollectCoins : MonoBehaviour
 {
     private HUD gm;
+    private Persist persist;
     void Start()
     {
         gm = GameObject.FindObjectOfType<HUD>();
@@ -24,6 +25,11 @@ public class CollectCoins : MonoBehaviour
                 gm.coins += Mathf.FloorToInt(Mathf.Pow(5, other.gameObject.transform.localScale.x - 1));
                 other.gameObject.SetActive(false);
             }
+        }
+        else if (other.gameObject.CompareTag("Axe"))
+        {
+            gm.hasAxe = true;
+            other.gameObject.SetActive(false);
         }
     }
     

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using R = UnityEngine.Random;
 
 public class EnemyDeath : MonoBehaviour
 {
@@ -28,16 +28,16 @@ public class EnemyDeath : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Weapon")) //On hit by player
         {
-            int r = Random.Range(1, 3);
+            int r = R.Range(0, 3);
             switch (r)
             {
-                case 1:
+                case 0:
                     drop = drop1;
                     break;
-                case 2:
+                case 1:
                     drop = drop2;
                     break;
-                case 3:
+                case 2:
                     drop = drop3;
                     break;
             }

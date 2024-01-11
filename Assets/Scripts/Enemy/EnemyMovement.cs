@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    GameObject target;
+    private GameObject target;
+    public float speed;
     void Start()
     {
         
@@ -16,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (target != null)
         {
-            transform.Translate((target.transform.position - transform.position).normalized * 5 * Time.deltaTime);
+            transform.Translate((target.transform.position - transform.position).normalized * speed * Time.deltaTime);
         }
     }
 
