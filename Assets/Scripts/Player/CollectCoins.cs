@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CollectCoins : MonoBehaviour
+public class CollectItems : MonoBehaviour
 {
     private HUD gm;
     private Persist persist;
+    public TopDown_AnimatorController a;
     void Start()
     {
         gm = GameObject.FindObjectOfType<HUD>();
@@ -29,6 +30,7 @@ public class CollectCoins : MonoBehaviour
         else if (other.gameObject.CompareTag("Axe"))
         {
             gm.hasAxe = true;
+            a.SwitchToAxe();
             other.gameObject.SetActive(false);
         }
     }

@@ -10,8 +10,10 @@ public class ShootFireball : MonoBehaviour
     float cooltime; //How long we've been cooling down for
     public Fireball fireball;
     public PlayerMovement pmove;
+    private HUD gm;
     void Start()
     {
+        gm = GameObject.FindObjectOfType<HUD>();
         cooltime = cooldown;
     }
     void Update()
@@ -20,7 +22,7 @@ public class ShootFireball : MonoBehaviour
         {
             cooltime -= Time.deltaTime;
         }
-        else if (Input.GetButtonDown("Fire1"))
+        else if (Input.GetButtonDown("Fire1") && !gm.hasAxe)
         {
             Fireball f = Instantiate(fireball, transform.position, quaternion.identity);
             f.velocity = pmove.vel.normalized * 10;

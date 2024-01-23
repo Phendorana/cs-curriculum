@@ -38,5 +38,9 @@ public class HUD : MonoBehaviour
     {
         coinText.text = "Coins: " + coins;
         hpText.text = "Health: " + health;
+        if (hasAxe)
+        {
+            
+        }
     }
 }

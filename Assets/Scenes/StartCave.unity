@@ -227,6 +227,7 @@ MonoBehaviour:
   health: 0
   coinText: {fileID: 1574911676}
   hpText: {fileID: 1088351833}
+  hasAxe: 0
 --- !u!114 &165410985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3780,6 +3781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff0d679ecafa45809ed3d8773e48f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  a: {fileID: 0}
 --- !u!114 &1856841606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3805,6 +3807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overworld: 0
+  vel: {x: 0, y: 0}
 --- !u!1 &1984272032
 GameObject:
   m_ObjectHideFlags: 0
