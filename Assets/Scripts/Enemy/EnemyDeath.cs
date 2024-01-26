@@ -14,6 +14,7 @@ public class EnemyDeath : MonoBehaviour
     private HUD gm;
     private TopDown_AnimatorController playerAnim;
     private PlayerMovement pmove;
+    public bool shovelImmunity;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +25,7 @@ public class EnemyDeath : MonoBehaviour
 
     private void Die()
     {
-        int r = R.Range(0, 3);
-        switch (r)
+        switch (R.Range(0, 3))
         {
             case 0:
                 drop = drop1;
@@ -52,9 +52,37 @@ public class EnemyDeath : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player")) //On smacked by player
+        if (other.gameObject.CompareTag("Player"))
         {
-            if (gm.hasAxe && playerAnim.IsAttacking && Physics2D.Raycast(pmove.gameObject.transform.position, pmove.vel.normalized, 4f))
+            Debug.Log("a");
+            bool inWeaponPath = false;
+            if (pmove.vel.x > 0) //If player is facing right
+            {
+                if (transform.position.x > pmove.gameObject.transform.position.x) //If we are to the right of the player
+                {
+                    inWeaponPath = true;
+                }
+            }
+            else if (transform.position.x <
+                     pmove.gameObject.transform.position.x) //Player's not facing right, and we are to the left of them
+            {
+                inWeaponPath = true;
+            }
+
+            if (pmove.vel.y > 0) //If player is facing up
+            {
+                if (transform.position.y > pmove.gameObject.transform.position.y) //If we are above the player
+                {
+                    inWeaponPath = true;
+                }
+            }
+            else if (transform.position.y <
+                     pmove.gameObject.transform.position.y) //Player's not facing up, and we are below them
+            {
+                inWeaponPath = true;
+            }
+
+            if (inWeaponPath && playerAnim.IsAttacking && ((shovelImmunity && gm.hasAxe) || !shovelImmunity))
             {
                 Die();
             }

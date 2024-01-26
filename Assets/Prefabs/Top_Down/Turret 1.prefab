@@ -211,6 +211,7 @@ MonoBehaviour:
   drop1: {fileID: 0}
   drop2: {fileID: 3462362578362087066, guid: 69c7343f050914c7787bbbe42c07b5b8, type: 3}
   drop3: {fileID: 3462362578362087066, guid: 69c7343f050914c7787bbbe42c07b5b8, type: 3}
+  shovelImmunity: 1
 --- !u!114 &2741735157121246301
 MonoBehaviour:
   m_ObjectHideFlags: 0
