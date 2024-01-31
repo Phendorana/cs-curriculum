@@ -123,79 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &30679295
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 358063302}
-    m_Modifications:
-    - target: {fileID: -957004161919751378, guid: fbdc99957549444bfba281e61d9d218c,
-        type: 3}
-      propertyPath: m_Radius
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3736838050167469039, guid: fbdc99957549444bfba281e61d9d218c,
-        type: 3}
-      propertyPath: m_Name
-      value: MobileEnemy (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668079526467658351, guid: fbdc99957549444bfba281e61d9d218c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.5564527
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668079526467658351, guid: fbdc99957549444bfba281e61d9d218c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.166483
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668079526467658351, guid: fbdc99957549444bfba281e61d9d218c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.20793915
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668079526467658351, guid: fbdc99957549444bfba281e61d9d218c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668079526467658351, guid: fbdc99957549444bfba281e61d9d218c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668079526467658351, guid: fbdc99957549444bfba281e61d9d218c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668079526467658351, guid: fbdc99957549444bfba281e61d9d218c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668079526467658351, guid: fbdc99957549444bfba281e61d9d218c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668079526467658351, guid: fbdc99957549444bfba281e61d9d218c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668079526467658351, guid: fbdc99957549444bfba281e61d9d218c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fbdc99957549444bfba281e61d9d218c, type: 3}
 --- !u!4 &127779217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3000049536412027477, guid: 0614f425ed9b1234285a39c655cdf377,
@@ -678,12 +605,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbdc99957549444bfba281e61d9d218c, type: 3}
---- !u!4 &242835131 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4668079526467658351, guid: fbdc99957549444bfba281e61d9d218c,
-    type: 3}
-  m_PrefabInstance: {fileID: 30679295}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &287773804
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,7 +751,6 @@ Transform:
   - {fileID: 288283053}
   - {fileID: 1966161332}
   - {fileID: 1945207081}
-  - {fileID: 242835131}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &396992123
@@ -40413,6 +40333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00cd6cdc5be4d4b1cbcf51f0108e85c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 691142943}
 --- !u!114 &691142941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40439,6 +40360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00cd6cdc5be4d4b1cbcf51f0108e85c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!114 &691142943 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2533259054711417595, guid: 34448014912494d33b041af48acd0291,

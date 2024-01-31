@@ -9,11 +9,10 @@ public class HealthManager : MonoBehaviour
     private HUD gm;
     private float itime = 0; //How long player has been invincible for
     private float ilength = 1.5f; //How long player will be invincible for
-    private TopDown_AnimatorController anim;
+    public TopDown_AnimatorController anim;
     void Start()
     {
         gm = GameObject.FindObjectOfType<HUD>();
-        anim = GetComponent<TopDown_AnimatorController>();
     }
 
     // Update is called once per frame

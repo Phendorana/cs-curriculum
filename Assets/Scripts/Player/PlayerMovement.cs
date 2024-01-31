@@ -12,9 +12,11 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 4;
     private float xVel;
     private float yVel;
+    private Vector2 move;
     private Rigidbody2D rb;
     private Collider2D col;
     private RaycastHit2D hit;
+    public Vector3 offset;
     private Scene scene;
     public Vector2 vel;
     // Start is called before the first frame update
@@ -39,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             if (hit.distance < col.bounds.extents.y)
             {
                 yVel = 0;
-                if (Input.GetAxis("Vertical") > 0 | Input.GetButtonDown("Jump"))
+                if (Input.GetAxis("Vertical") > 0 || Input.GetButton("Jump"))
                 {
                     yVel = 8;
                 }
@@ -49,15 +51,25 @@ public class PlayerMovement : MonoBehaviour
                 yVel -= 20 * Time.deltaTime;
             }
         }
-        transform.Translate(new Vector2(xVel, yVel) * Time.deltaTime);
-        #endregion
-
-        if (xVel != 0 || yVel != 0)
+        move = new Vector2(xVel, yVel);
+        if (!overworld)
         {
-            vel = new Vector2(xVel, yVel);
+            offset = new Vector3(Mathf.Sign(xVel) * col.bounds.extents.x,
+                Mathf.Sign(yVel) * col.bounds.extents.y + 0.38f, 0);
+            hit = Physics2D.Raycast(transform.position + offset, move.normalized);
+            if (hit.distance < move.magnitude + 0.001f)
+            {
+                move = move.normalized * hit.distance;
+            }
+        }
+
+        transform.Translate(move * Time.deltaTime);
+        #endregion
+        
+        
+        if (xVel != 0 || yVel != 0) //Know which direction player is moving
+        {
+            vel = move;
         }
     }
-    
-    
-    
 }
