@@ -700,7 +700,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.62, y: 4}
+  m_Size: {x: 3.08, y: 3.08}
   m_EdgeRadius: 0
 --- !u!4 &288283053 stripped
 Transform:
@@ -40347,6 +40347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overworld: 1
+  offset: {x: 0, y: 0, z: 0}
   vel: {x: 0, y: 0}
 --- !u!114 &691142942
 MonoBehaviour:

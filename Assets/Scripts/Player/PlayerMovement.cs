@@ -52,16 +52,15 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         move = new Vector2(xVel, yVel);
-        if (!overworld)
+        /*if (!overworld)
         {
-            offset = new Vector3(Mathf.Sign(xVel) * col.bounds.extents.x,
-                Mathf.Sign(yVel) * col.bounds.extents.y + 0.38f, 0);
-            hit = Physics2D.Raycast(transform.position + offset, move.normalized);
-            if (hit.distance < move.magnitude + 0.001f)
+            offset = new Vector3(Mathf.Sign(xVel) * col.bounds.extents.x, Mathf.Sign(yVel) * col.bounds.extents.y + 0.27f, 0);
+            hit = Physics2D.Raycast(transform.position + offset, move.normalized * Time.deltaTime);
+            if (hit.distance < move.magnitude * Time.deltaTime + 0.001f)
             {
                 move = move.normalized * hit.distance;
             }
-        }
+        }*/
 
         transform.Translate(move * Time.deltaTime);
         #endregion
