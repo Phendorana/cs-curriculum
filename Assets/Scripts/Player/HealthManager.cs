@@ -10,9 +10,13 @@ public class HealthManager : MonoBehaviour
     private float itime = 0; //How long player has been invincible for
     private float ilength = 1.5f; //How long player will be invincible for
     public TopDown_AnimatorController anim;
+    public Platformer_Animator caveAnim;
+    private PlayerMovement mov;
+    private bool attacking;
     void Start()
     {
-        gm = GameObject.FindObjectOfType<HUD>();
+        gm = FindObjectOfType<HUD>();
+        mov = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -30,7 +34,15 @@ public class HealthManager : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (itime == 0 && other.gameObject.CompareTag("Enemy") && !anim.IsAttacking)
+        if ((mov.overworld && anim.IsAttacking) || (!mov.overworld && caveAnim.IsAttacking))
+        {
+            attacking = true;
+        }
+        else
+        {
+            attacking = false;
+        }
+        if (itime == 0 && (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Spikes")) && attacking)
         {
             gm.health -= 1;
             itime += Time.deltaTime;

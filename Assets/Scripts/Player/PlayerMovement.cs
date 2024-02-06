@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] bool overworld;
+    public bool overworld;
     private float speed = 4;
     private float xVel;
     private float yVel;
@@ -52,20 +52,17 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         move = new Vector2(xVel, yVel);
-        /*if (!overworld)
+        if (!overworld && false)
         {
-            offset = new Vector3(Mathf.Sign(xVel) * col.bounds.extents.x, Mathf.Sign(yVel) * col.bounds.extents.y + 0.27f, 0);
+            offset = new Vector3(Mathf.Sign(xVel) * col.bounds.extents.x + col.offset.x, Mathf.Sign(yVel) * col.bounds.extents.y + col.offset.y, 0);
             hit = Physics2D.Raycast(transform.position + offset, move.normalized * Time.deltaTime);
             if (hit.distance < move.magnitude * Time.deltaTime + 0.001f)
             {
                 move = move.normalized * hit.distance;
             }
-        }*/
-
+        }
         transform.Translate(move * Time.deltaTime);
         #endregion
-        
-        
         if (xVel != 0 || yVel != 0) //Know which direction player is moving
         {
             vel = move;
