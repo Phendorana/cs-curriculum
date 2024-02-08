@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 offset;
     private Scene scene;
     public Vector2 vel;
+    private float sprintTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,20 +31,35 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         #region Movement
-        xVel = Input.GetAxis("Horizontal") * speed;
+        if (Input.GetButton("Submit") && sprintTimer == 0) //Sprint
+        {
+            sprintTimer = 0.5f;
+            speed = 10;
+        }
+
+        if (sprintTimer > 0)
+        {
+            sprintTimer -= Time.deltaTime;
+            if (sprintTimer < 0)
+            {
+                sprintTimer = 0;
+                speed = 4;
+            }
+        }
+        xVel = Input.GetAxis("Horizontal") * speed; //Hori move
         if (overworld)
         {
-            yVel = Input.GetAxis("Vertical") * speed;
+            yVel = Input.GetAxis("Vertical") * speed; //Vert move
         }
-        else
+        else //Jump
         {
             hit = Physics2D.Raycast(transform.position, Vector2.down);
             if (hit.distance < col.bounds.extents.y)
             {
                 yVel = 0;
-                if (Input.GetAxis("Vertical") > 0 || Input.GetButton("Jump"))
+                if (Input.GetAxis("Vertical") > 0)
                 {
-                    yVel = 8;
+                    yVel = 12;
                 }
             }
             else

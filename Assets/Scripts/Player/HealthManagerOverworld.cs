@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class HealthManager : MonoBehaviour
+public class HealthManagerOverworld : MonoBehaviour
 {
     private HUD gm;
     private float itime = 0; //How long player has been invincible for
     private float ilength = 1.5f; //How long player will be invincible for
     public TopDown_AnimatorController anim;
-    public Platformer_Animator caveAnim;
     private PlayerMovement mov;
     private bool attacking;
     void Start()
@@ -34,15 +33,7 @@ public class HealthManager : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if ((mov.overworld && anim.IsAttacking) || (!mov.overworld && caveAnim.IsAttacking))
-        {
-            attacking = true;
-        }
-        else
-        {
-            attacking = false;
-        }
-        if (itime == 0 && (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Spikes")) && attacking)
+        if (itime == 0 && other.gameObject.CompareTag("Enemy") && !anim.IsAttacking)
         {
             gm.health -= 1;
             itime += Time.deltaTime;
