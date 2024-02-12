@@ -45,7 +45,7 @@ public class EnemyDeath : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Weapon")) //On hit by player
+        if (other.gameObject.CompareTag("Weapon")) //On hit by fireball
         {
             Die();
         }

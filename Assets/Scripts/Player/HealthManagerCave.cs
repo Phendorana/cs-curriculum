@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthManagerCave : MonoBehaviour
 {
@@ -33,8 +34,11 @@ public class HealthManagerCave : MonoBehaviour
     {
         if (itime == 0 && other.gameObject.CompareTag("Enemy") && !anim.IsAttacking)
         {
-            gm.health -= 1;
-            itime += Time.deltaTime;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (gm.hasAxe)
+            {
+                
+            }
         }
     }
 }

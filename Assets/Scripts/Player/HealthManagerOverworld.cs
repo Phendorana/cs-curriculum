@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthManagerOverworld : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class HealthManagerOverworld : MonoBehaviour
     {
         gm = FindObjectOfType<HUD>();
         mov = GetComponent<PlayerMovement>();
+        if (gm.hasAxe)
+        {
+            anim.SwitchToAxe();
+        }
     }
 
     // Update is called once per frame
@@ -35,8 +40,7 @@ public class HealthManagerOverworld : MonoBehaviour
     {
         if (itime == 0 && other.gameObject.CompareTag("Enemy") && !anim.IsAttacking)
         {
-            gm.health -= 1;
-            itime += Time.deltaTime;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

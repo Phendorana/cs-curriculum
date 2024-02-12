@@ -6,7 +6,6 @@ using UnityEngine;
 public class CollectItems : MonoBehaviour
 {
     private HUD gm;
-    private Persist persist;
     public TopDown_AnimatorController a;
     void Start()
     {
